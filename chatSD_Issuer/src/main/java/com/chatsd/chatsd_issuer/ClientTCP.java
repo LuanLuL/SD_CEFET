@@ -4,6 +4,7 @@ package com.chatsd.chatsd_issuer;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,12 @@ public class ClientTCP {
             
             JOptionPane.showMessageDialog(null, "ClientTCP::execute(): " + reader.readUTF());
             reader.close();
+            
+            ObjectOutputStream writer = new ObjectOutputStream(client.getOutputStream());
+            writer.flush();
+            String msg = JOptionPane.showInputDialog("Qual sua mensagem de resposta");
+            writer.close();
+            
             client.close();
             
         } catch(HeadlessException | IOException error) {
