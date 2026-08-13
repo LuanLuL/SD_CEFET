@@ -12,18 +12,23 @@ public class ClientTCP {
     public void execute() {
         try {
             Socket client = new Socket("127.0.0.1", 3322);
+            
             ObjectInputStream reader = new ObjectInputStream(client.getInputStream());
-            
-            JOptionPane.showMessageDialog(null, "ClientTCP::execute(): " + reader.readUTF());
-            reader.close();
-            
             ObjectOutputStream writer = new ObjectOutputStream(client.getOutputStream());
+            
+            System.out.println("Aguardando leitura!");
+            JOptionPane.showMessageDialog(null, "ClientTCP::execute(): " + reader.readUTF());
+            System.out.println("Mensagem recebida!");
+
+            System.out.println("Escrevendo mensagem!");
+            String msg = JOptionPane.showInputDialog("Cliente::execute(): Resposta para o servidor");
+            writer.writeUTF(msg);
             writer.flush();
-            String msg = JOptionPane.showInputDialog("Qual sua mensagem de resposta");
+            System.out.println("Mensagem enviada!");
+            
             writer.close();
-            
-            client.close();
-            
+            reader.close();
+            client.close();           
         } catch(HeadlessException | IOException error) {
             System.out.println(error);
             JOptionPane.showMessageDialog(null, "ServidorTCP::execute() " + error.getMessage());
