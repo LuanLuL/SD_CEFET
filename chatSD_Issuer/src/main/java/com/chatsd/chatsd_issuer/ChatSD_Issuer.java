@@ -1,5 +1,4 @@
-
-import com.chatsd.chatsd_issuer.ClientTCP;
+package com.chatsd.chatsd_issuer;
 
 
 public class ChatSD_Issuer {
