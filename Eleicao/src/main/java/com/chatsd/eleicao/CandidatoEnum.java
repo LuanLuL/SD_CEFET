@@ -3,7 +3,9 @@ package com.chatsd.eleicao;
 public enum CandidatoEnum {
     CANDIDATO_1(1),
     CANDIDATO_2(2),
-    CANDIDATO_3(3);
+    CANDIDATO_3(3),
+    BRANCO(4),
+    NULO(5);
 
     private final int valor;
 

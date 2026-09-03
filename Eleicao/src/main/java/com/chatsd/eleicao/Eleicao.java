@@ -4,8 +4,7 @@ public class Eleicao {
 
     public static void main(String[] args) {
         Central eleicao = new Central();
-        eleicao.iniciarVotacao(2);
-        eleicao.showResults();
+        eleicao.startVotacao(2);
         eleicao.close();
     }
 }
