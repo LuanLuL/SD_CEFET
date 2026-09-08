@@ -4,6 +4,8 @@ public class Painel extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Painel.class.getName());
     private int votoValue;
+    private Runnable onVotar;
+
     
     public Painel() {
         initComponents();
@@ -12,6 +14,10 @@ public class Painel extends javax.swing.JFrame {
     
     public int getVotoValue(){
         return this.votoValue;
+    }
+    
+    public void setOnVotar(Runnable onVotar) {
+        this.onVotar = onVotar;
     }
 
     @SuppressWarnings("unchecked")
@@ -67,6 +73,7 @@ public class Painel extends javax.swing.JFrame {
 
         form.add(optionNulo);
         optionNulo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        optionNulo.setSelected(true);
         optionNulo.setText("Nulo");
         optionNulo.setName("optionNulo"); // NOI18N
         optionNulo.addActionListener(this::optionNuloActionPerformed);
@@ -153,7 +160,21 @@ public class Painel extends javax.swing.JFrame {
     }//GEN-LAST:event_optionNuloActionPerformed
 
     private void btnVotarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVotarActionPerformed
+        if(this.votoValue == 0) this.votoValue = 6;
         
+        this.btnVotar.setText("Aguardando apuração...");
+        this.btnVotar.setEnabled(false);
+
+        this.optionCandidato1.setEnabled(false);
+        this.optionCandidato2.setEnabled(false);
+        this.optionCandidato3.setEnabled(false);
+        this.optionCandidato4.setEnabled(false);
+        this.optionBranco.setEnabled(false);
+        this.optionNulo.setEnabled(false);
+        
+        if (this.onVotar != null) {
+            this.onVotar.run();
+        }
     }//GEN-LAST:event_btnVotarActionPerformed
 
     public static void main(String args[]) {

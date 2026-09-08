@@ -4,8 +4,9 @@ public enum CandidatoEnum {
     CANDIDATO_1(1),
     CANDIDATO_2(2),
     CANDIDATO_3(3),
-    BRANCO(4),
-    NULO(5);
+    CANDIDATO_4(4),
+    BRANCO(5),
+    NULO(6);
 
     private final int valor;
 

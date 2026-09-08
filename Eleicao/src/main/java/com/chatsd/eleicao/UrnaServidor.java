@@ -20,7 +20,6 @@ public class UrnaServidor {
     
      public int getVotos() {
         int total = 0;
-
         for (int quantidade : votos.values()) {
             total += quantidade;
         }
@@ -32,24 +31,30 @@ public class UrnaServidor {
         return votos.get(candidato);
     }
     
-    public CandidatoEnum calcularVencedor() {
-        CandidatoEnum vencedor = null;
-        int maiorQuantidade = -1;
-        boolean empate = false;
+    public String[] calcularResultado() {
+        int totalVotos = this.getVotos();
+        String[] resultado = new String[CandidatoEnum.values().length];
 
-        for (CandidatoEnum candidato : votos.keySet()) {
-            int quantidade = votos.get(candidato);
+        int index = 0;
 
-            if (quantidade > maiorQuantidade) {
-                maiorQuantidade = quantidade;
-                vencedor = candidato;
-                empate = false;
-
-            } else if (quantidade == maiorQuantidade) {
-                empate = true;
+        for (CandidatoEnum candidato : CandidatoEnum.values()) {
+            int quantidadeVotos = votos.get(candidato);
+            double percentual = 0;
+            
+            if (totalVotos > 0) {
+                percentual = ((double) quantidadeVotos / totalVotos) * 100;
             }
-        }
 
-        return empate ? null : vencedor;
+            resultado[index] = candidato.name()
+                    + ": "
+                    + quantidadeVotos
+                    + " votos "
+                    + String.format("%.2f", percentual)
+                    + "%";
+
+            index++;
+        }
+        
+        return resultado;
     }
 }
