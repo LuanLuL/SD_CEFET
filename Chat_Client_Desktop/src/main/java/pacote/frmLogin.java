@@ -8,18 +8,14 @@ package pacote;
  *
  * @author LuanLuL
  */
-public class frmLogin extends javax.swing.JFrame {
+public class FrmLogin extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmLogin.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmLogin.class.getName());
 
     /**
      * Creates new form frmLogin
      */
-    public frmLogin() {
-        System.out.println("vai tomando " +
-            getClass().getResource("/images/AvatarHomem.png")
-        );
-
+    public FrmLogin() {
         initComponents();
     }
 
@@ -225,7 +221,27 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_rdAvatarHomemActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
+       Util.nickname = inputTxtNickname.getText();
+       
+       if(rdCorAzul.isSelected()){
+            Util.cor = "blue";
+       } else if(rdCorRosa.isSelected()){
+            Util.cor = "pink";
+       } else {
+            Util.cor = "green";
+       }
+       
+       if(rdAvatarHomem.isSelected()){
+            Util.avatar = "AvatarHomem.png";
+       } else if(rdAvatarMulher.isSelected()){
+            Util.avatar = "AvatarMulher.png";
+       } else {
+            Util.avatar = "AvatarIndeterminado.png";
+       }
+       
+       FrmChat fmrChat = new FrmChat();
+       fmrChat.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void rdAvatarMulherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdAvatarMulherActionPerformed
@@ -258,7 +274,7 @@ public class frmLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frmLogin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmLogin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,24 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package pacote;
 
-/**
- *
- * @author LuanLuL
- */
-public class frmChat extends javax.swing.JFrame {
+public class FrmChat extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmChat.class.getName());
+    public String msg = "";
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmChat.class.getName());
 
     /**
      * Creates new form frmChat
      */
-    public frmChat() {
+    public FrmChat() {
         initComponents();
     }
 
+    public void gerarMsg(){
+        this.msg = "";
+        this.msg += "<img src='/pacote/images/" + Util.avatar + "' width='24px' height='24px'> ";
+        this.msg += "<font color='" + Util.cor + "'><b>" + Util.nickname + " </b></font>";
+        
+        if(selectModo.getSelectedItem().toString().equals("Fala")){
+            this.msg += "fala: " + this.inputTxtMensagem.getText();
+        } else if(selectModo.getSelectedItem().toString().equals("Grita")){
+            this.msg += "<b>grita:</b> <font size='+1'>" + this.inputTxtMensagem.getText().toUpperCase() + "</font>";
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,17 +33,90 @@ public class frmChat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        scrConversa = new javax.swing.JScrollPane();
+        edtConversa = new javax.swing.JEditorPane();
+        lblMensagem = new javax.swing.JLabel();
+        inputTxtMensagem = new javax.swing.JTextField();
+        lblModo = new javax.swing.JLabel();
+        selectModo = new javax.swing.JComboBox<>();
+        lblEmoji = new javax.swing.JLabel();
+        selectEmoji = new javax.swing.JComboBox<>();
+        btnEnviar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Chat");
+        setName("fmrChat"); // NOI18N
+
+        scrConversa.setName("scrConversa"); // NOI18N
+
+        edtConversa.setContentType("text/html"); // NOI18N
+        scrConversa.setViewportView(edtConversa);
+
+        lblMensagem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblMensagem.setText("Mensagem:");
+        lblMensagem.setName("lblMensagem"); // NOI18N
+
+        inputTxtMensagem.setName("inputTxtMensagem"); // NOI18N
+
+        lblModo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblModo.setText("Modo:");
+        lblModo.setName("lblModo"); // NOI18N
+
+        selectModo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fala", "Grita", "Sussurra", "Xinga" }));
+        selectModo.setName("selectModo"); // NOI18N
+
+        lblEmoji.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblEmoji.setText("Emoji:");
+        lblEmoji.setName("lblEmoji"); // NOI18N
+
+        selectEmoji.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nenhum", "Coracao", "Dinheiro", "Beijo", " " }));
+        selectEmoji.setName("selectEmoji"); // NOI18N
+
+        btnEnviar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnEnviar.setText("Enviar");
+        btnEnviar.setName("btnEnviar"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(scrConversa))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputTxtMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblModo)
+                        .addGap(12, 12, 12)
+                        .addComponent(selectModo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblEmoji)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(selectEmoji, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrConversa, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(inputTxtMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModo)
+                    .addComponent(selectModo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEmoji)
+                    .addComponent(selectEmoji, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEnviar))
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -66,9 +144,18 @@ public class frmChat extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frmChat().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrmChat().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEnviar;
+    private javax.swing.JEditorPane edtConversa;
+    private javax.swing.JTextField inputTxtMensagem;
+    private javax.swing.JLabel lblEmoji;
+    private javax.swing.JLabel lblMensagem;
+    private javax.swing.JLabel lblModo;
+    private javax.swing.JScrollPane scrConversa;
+    private javax.swing.JComboBox<String> selectEmoji;
+    private javax.swing.JComboBox<String> selectModo;
     // End of variables declaration//GEN-END:variables
 }
