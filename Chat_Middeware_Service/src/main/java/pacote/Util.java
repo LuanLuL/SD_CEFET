@@ -4,8 +4,8 @@ public class Util {
    private static int portaEnvioDesktop = 6661;
    private static int portaRecepcaoDesktop = 6662;
    private static String pathDesktopTxt = "C:\\Users\\LuanLuL\\Downloads\\SD\\Chat_Middeware_Service\\src\\main\\java\\pacote\\txt\\RepositorioDesktop.txt";
-   public static DesktopRecepcaoThreads threadDesktopRecepcaoThreads;
-   
+   public static DesktopRecepcaoThreads threadDesktopRecepcaoThreads;   
+   public static DesktopEnvioThreads threadDesktopEnvioThreads;
    
    public Util(){}
            

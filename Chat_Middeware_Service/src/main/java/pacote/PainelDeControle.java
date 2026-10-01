@@ -173,8 +173,10 @@ public class PainelDeControle extends javax.swing.JFrame {
     private void btnControlDesktopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlDesktopActionPerformed
         if(btnControlDesktop.isSelected()){
             btnControlDesktop.setText("Desativar");
-            Util.threadDesktopRecepcaoThreads = new DesktopRecepcaoThreads();
+            Util.threadDesktopRecepcaoThreads = new DesktopRecepcaoThreads();            
+            Util.threadDesktopEnvioThreads = new DesktopEnvioThreads();
             Thread.ofVirtual().start(Util.threadDesktopRecepcaoThreads);
+            Thread.ofVirtual().start(Util.threadDesktopEnvioThreads);
         } else {
             btnControlDesktop.setText("Ativar");
             Util.threadDesktopRecepcaoThreads.fecharServidor();

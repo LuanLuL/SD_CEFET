@@ -100,6 +100,9 @@
       <Properties>
         <Property name="name" type="java.lang.String" value="inputTxtMensagem" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputTxtMensagemKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblModo">
       <Properties>
@@ -160,6 +163,9 @@
         <Property name="text" type="java.lang.String" value="Enviar"/>
         <Property name="name" type="java.lang.String" value="btnEnviar" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnviarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

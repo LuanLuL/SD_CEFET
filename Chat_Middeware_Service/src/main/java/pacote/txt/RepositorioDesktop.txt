@@ -1,1 +1,11 @@
-VAI TOMANDO!
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='pink'><b>Luan </b></font><font size='-1'><i>sussura: </i>opa </font><img src='images/Coracao.png' width='15' height='15'><br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='pink'><b>Luan </b></font>fala: Como vai você?<br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='pink'><b>Luan </b></font><font size='+1' color='red'><b><u>xinga: BÃO OU BAO? &#128512;</u></b></font><br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>luan </b></font>fala: opa<br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>Luan </b></font>fala: alguma coisa<br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>Luan </b></font><font size='-1'><i>sussura: </i>opa</font><img src='images/Dinheiro.png' width='15' height='15'><br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>dsfasdf </b></font>fala: oi<br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>dsfasdf </b></font>fala: testando o chat<br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>dsfasdf </b></font><font size='-1'><i>sussura: </i>:-d</font><img src='images/Dinheiro.png' width='15' height='15'><br>
+<img src='/pacote/images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>dsfasdf </b></font><font size='+1' color='red'><b><u>xinga: TESTANDO</u></b></font><br>
+<img src='/pacote/images/AvatarHomem.png' width='24px' height='24px'> <font color='blue'><b>luan </b></font>fala: opa<br>

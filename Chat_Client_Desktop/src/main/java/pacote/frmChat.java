@@ -1,5 +1,14 @@
 package pacote;
 
+import java.awt.event.KeyEvent;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+
 public class FrmChat extends javax.swing.JFrame {
     
     public String msg = "";
@@ -10,9 +19,27 @@ public class FrmChat extends javax.swing.JFrame {
      */
     public FrmChat() {
         initComponents();
+        Thread.startVirtualThread(() -> {
+            while(true){
+                try{
+                    Socket client = new Socket("200.128.141.103", 6661);
+                    ObjectInputStream input = new ObjectInputStream(client.getInputStream());
+                    String msgs = input.readUTF();
+                    input.close();
+                    client.close();
+                    edtConversa.setText("");
+                    HTMLEditorKit kit = (HTMLEditorKit) edtConversa.getEditorKit();
+                    HTMLDocument doc = (HTMLDocument) edtConversa.getDocument();
+                    kit.insertHTML(doc, doc.getLength(), msgs, 0, 0, null);
+                } catch(Exception error){
+                    System.out.println("FrmChat::FrmChat: Error " + error.getMessage());
+                    JOptionPane.showMessageDialog(null, "FrmChat::FrmChat: Error " + error.getMessage());
+                }
+            }
+        });
     }
 
-    public void gerarMsg(){
+    public void gerarAndEnviarMsg(){
         this.msg = "";
         this.msg += "<img src='/pacote/images/" + Util.avatar + "' width='24px' height='24px'> ";
         this.msg += "<font color='" + Util.cor + "'><b>" + Util.nickname + " </b></font>";
@@ -20,7 +47,50 @@ public class FrmChat extends javax.swing.JFrame {
         if(selectModo.getSelectedItem().toString().equals("Fala")){
             this.msg += "fala: " + this.inputTxtMensagem.getText();
         } else if(selectModo.getSelectedItem().toString().equals("Grita")){
-            this.msg += "<b>grita:</b> <font size='+1'>" + this.inputTxtMensagem.getText().toUpperCase() + "</font>";
+            this.msg += "<b>grita: </b> <font size='+2'>" + this.inputTxtMensagem.getText().toUpperCase() + "</font>";
+        } else if(selectModo.getSelectedItem().toString().equals("Sussurra")){
+            this.msg += "<font size='-1'><i>sussura: </i>" + this.inputTxtMensagem.getText().toLowerCase() + "</font>";
+        } else if(selectModo.getSelectedItem().toString().equals("Xinga")){
+            this.msg += "<font size='+1' color='red'><b><u>xinga: " + this.inputTxtMensagem.getText().toUpperCase() + "</u></b></font>";
+        }
+        
+        if(!selectEmoji.getSelectedItem().toString().equals("Nenhum")){
+            this.msg += "<img src='images/" + selectEmoji.getSelectedItem().toString() + ".png' width='15' height='15'>";
+        }
+        
+        this.msg += "<br>";
+        
+        ArrayList<String> codigos = new ArrayList<>();        
+        ArrayList<String> simbolos = new ArrayList<>();
+        
+        codigos.add(":-)");
+        simbolos.add("&#128512;");
+        codigos.add(";-)");
+        simbolos.add("&#128521;");
+        codigos.add("x-x");
+        simbolos.add("&#128565;");
+        codigos.add(":-(");
+        simbolos.add("&#128551;");
+        codigos.add(";-;");
+        simbolos.add("&#128557;");
+        
+        for(int i=0; i < codigos.size(); i++){
+            this.msg = this.msg.replace(codigos.get(i), simbolos.get(i));
+        }
+        
+        inputTxtMensagem.setText("");
+        selectModo.setSelectedIndex(0);
+        selectEmoji.setSelectedIndex(0);
+        
+        try{
+            Socket client = new Socket("200.128.141.103", 6662);
+            ObjectOutputStream output = new ObjectOutputStream(client.getOutputStream());
+            output.writeUTF(this.msg);
+            output.close();
+            client.close();
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, "FrmChat::gerarAndEnviarMsg(): Erro " + e.getMessage());
+            e.printStackTrace();
         }
     }
     
@@ -57,6 +127,11 @@ public class FrmChat extends javax.swing.JFrame {
         lblMensagem.setName("lblMensagem"); // NOI18N
 
         inputTxtMensagem.setName("inputTxtMensagem"); // NOI18N
+        inputTxtMensagem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputTxtMensagemKeyPressed(evt);
+            }
+        });
 
         lblModo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblModo.setText("Modo:");
@@ -75,6 +150,7 @@ public class FrmChat extends javax.swing.JFrame {
         btnEnviar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEnviar.setText("Enviar");
         btnEnviar.setName("btnEnviar"); // NOI18N
+        btnEnviar.addActionListener(this::btnEnviarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,6 +197,16 @@ public class FrmChat extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        this.gerarAndEnviarMsg();
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void inputTxtMensagemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputTxtMensagemKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            this.gerarAndEnviarMsg();
+        }
+    }//GEN-LAST:event_inputTxtMensagemKeyPressed
 
     /**
      * @param args the command line arguments
