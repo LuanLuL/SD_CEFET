@@ -226,7 +226,7 @@ public class FrmLogin extends javax.swing.JFrame {
        if(rdCorAzul.isSelected()){
             Util.cor = "blue";
        } else if(rdCorRosa.isSelected()){
-            Util.cor = "pink";
+            Util.cor = "#ff00cc";
        } else {
             Util.cor = "green";
        }
