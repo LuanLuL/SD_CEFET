@@ -1,21 +1,3 @@
-<img src='images/AvatarMulher.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font>fala: Oi<br>
-<img src='images/AvatarMulher.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font><b>grita: </b> <font size='+2'>OI</font><br>
-<img src='images/AvatarMulher.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font><font size='-1'><i>sussura: </i>oi</font><br>
-<img src='images/AvatarMulher.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font><font size='+1' color='red'><b><u>xinga: OI</u></b></font><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>Ph </b></font>fala: Opa<br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>Ph </b></font><b>grita: </b> <font size='+2'>OPA</font><img src='images/Dinheiro.png' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>Ph </b></font><font size='-1'><i>sussura: </i>opa</font><img src='images/Beijo.png' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='blue'><b>Ph </b></font><font size='+1' color='red'><b><u>xinga: OPA</u></b></font><img src='images/Coracao.png' width='15' height='15'><br>
-<img src='images/AvatarHomem.png' width='24px' height='24px'> <font color='green'><b>Dudu </b></font>fala: iai<img src='images/joinha.gif' width='15' height='15'><br>
-<img src='images/AvatarHomem.png' width='24px' height='24px'> <font color='green'><b>Dudu </b></font><b>grita: </b> <font size='+2'>IAI</font><img src='images/bandeira.gif' width='15' height='15'><br>
-<img src='images/AvatarHomem.png' width='24px' height='24px'> <font color='green'><b>Dudu </b></font><font size='-1'><i>sussura: </i>iai</font><img src='images/danca.gif' width='15' height='15'><br>
-<img src='images/AvatarHomem.png' width='24px' height='24px'> <font color='green'><b>Dudu </b></font><font size='+1' color='red'><b><u>xinga: IAI</u></b></font><br>
-<img src='images/AvatarHomem.png' width='24px' height='24px'> <font color='green'><b>Dudu </b></font><font size='+1' color='red'><b><u>xinga: TESTEEEE</u></b></font><img src='images/Coracao.png' width='15' height='15'><img src='images/joinha.gif' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font>fala: opa novamente <img src='images/danca.gif' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font>fala: mas ai nao<img src='images/Beijo.png' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font><b>grita: </b> <font size='+2'>TESTNADOOOOO</font><img src='images/joinha.gif' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font><font size='+1' color='red'><b><u>xinga: PARA QUE GRIATA</u></b></font><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font>fala: <img src='images/joinha.gif' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font>fala: <img src='images/Beijo.png' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='green'><b>Luan </b></font>fala: <img src='images/Dinheiro.png' width='15' height='15'><br>
-<img src='images/AvatarIndeterminado.png' width='24px' height='24px'> <font color='green'><b>Luan </b></font><b>grita: </b> <font size='+2'>MSG &#128512; HGH </font><img src='images/bandeira.gif' width='15' height='15'><br>
+<img src="AvatarIndeterminado.png" width="24" height="24"><font size="+1" color="hotpink"><b>Luan</b></font> diz: Opaaaaa<img src="null" width="24" height="24" /><br>
+<img src='images/AvatarHomem.png' width='24px' height='24px'> <font color='#ff00cc'><b>Luan </b></font><b>grita: </b> <font size='+2'>RECEBA</font><img src='images/joinha.gif' width='15' height='15'><br>
+<img src="AvatarIndeterminado.png" width="24" height="24"><font size="+1" color="hotpink"><b>Luan</b></font> diz: ola<img src="null" width="24" height="24" /><br>

@@ -13,12 +13,6 @@
     </head>
     <body>
         <%
-//            out.print(
-//                "Nickname = " + request.getParameter("txtNickname") + 
-//                "<br>radCor = " + request.getParameter("radCor") + 
-//                "<br>radAvatar = " + request.getParameter("radAvatar")
-//            );
-//            
             session.setAttribute("nickName", request.getParameter("txtNickname"));
             session.setAttribute("cor", request.getParameter("radCor"));
             session.setAttribute("avatarImgName", request.getParameter("radAvatar"));
